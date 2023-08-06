@@ -2,6 +2,8 @@
        
        IDENTIFICATION DIVISION.
        PROGRAM-ID. CHOICE.
+       AUTHOR. Love Bellinder
+       
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        01 CHOICE-ONE PIC 9 VALUE ZERO.
@@ -43,4 +45,3 @@
        END-IF
 
        STOP RUN.
-       
