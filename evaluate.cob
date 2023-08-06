@@ -1,38 +1,46 @@
+       >>SOURCE FORMAT FREE
+       
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. Hitta.
-       AUTHOR. Love Bellinder.
-       DATE-WRITTEN.  01/08/2023.
+       PROGRAM-ID. CHOICE.
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01 CHOICE-ONE PIC 9 VALUE ZER0.
-       01 CHOICE-TYPE PIC X(50).
+       01 CHOICE-ONE PIC 9 VALUE ZERO.
+       01 CHOICE-TYPE PIC X(20).
        PROCEDURE DIVISION.
-       DISPLAY "Vilket håll vil du gå åt?"
-       DISPLAY "1. Vänster"
-       DISPLAY "2. Höger"
-       DISPLAY "3. Framåt"
-       DISPLAY "4. Bakåt"
-       DISPLAY "Ditt val: " with no advancing
+       DISPLAY "Du står i början av en lång korridor. Vad gör du?"
+       DISPLAY "1. Går till vänster."
+       DISPLAY "2. Går till höger."
+       DISPLAY "3. Går framåt."
+       DISPLAY "4. Går bakåt."
+       DISPLAY "Ditt val: " WITH NO ADVANCING
        ACCEPT CHOICE-ONE
        EVALUATE CHOICE-ONE
-           WHEN 1 MOVE "vänster" TO CHOICE-TYPE
-           WHEN 2 MOVE "höger" TO CHOICE-TYPE
-           WHEN 3 MOVE "framåt" TO CHOICE-TYPE
-           WHEN 4 MOVE "bakåt" TO CHOICE-TYPE
-           WHEN OTHER STOP RUN.
+           WHEN 1 MOVE "Vänster" TO CHOICE-TYPE
+           WHEN 2 MOVE "Höger" TO CHOICE-TYPE
+           WHEN 3 MOVE "Framåt" TO CHOICE-TYPE
+           WHEN 4 MOVE "Bakåt" TO CHOICE-TYPE
+           WHEN OTHER MOVE 0 TO CHOICE-TYPE
        END-EVALUATE
-       DISPLAY "Du gick " CHOICE-TYPE
-       IF CHOICE-ONE = 1 then
-       DISPLAY "Du kommer in i en mörk korridor. Du ser ljuset!"
+       
+       IF CHOICE-ONE = 1 THEN 
+       DISPLAY "Du kommer in i köket."
        END-IF
-       IF CHOICE-ONE = 2 then
-       DISPLAY "Du kommer in i badrummet. Vad gör du?"
+
+       IF CHOICE-ONE = 2 THEN 
+       DISPLAY "Du kommer in i tvättstugan."
        END-IF
-       IF CHOICE-ONE = 3 then
-       DISPLAY "Du kommer in i en skog. Det luktar koda och barr."
-       DISPLAY "Du hör någon sjunga en bit bort. Vad gör du?"
+
+       IF CHOICE-ONE = 3 THEN 
+       DISPLAY "Du kommer till slutet av korridoren."
        END-IF
-       IF CHOICE-ONE = 4 then
-       DISPLAY "Du kommer in på en second-hand. Du köpe en blå mugg!"
+
+       IF CHOICE-ONE = 4 THEN 
+       DISPLAY "Du kommer ut i det fria."
        END-IF
-       GOBACK.
+
+       IF CHOICE-TYPE = 0 THEN 
+       DISPLAY "Ogiltigt val. Hejdå!"
+       END-IF
+
+       STOP RUN.
+       
